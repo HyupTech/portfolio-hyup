@@ -12,8 +12,9 @@ import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 
-@DataJpaTest
+@DataJpaTest // JPA 관련된 기능만 로드하여 테스트
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+// 테스트 클래스가 한 번만 인스턴스화, 테스트 간 상태를 공유
 class ProjectRepositoryTest(
         @Autowired val projectRepository: ProjectRepository,
         @Autowired val skillRepository: SkillRepository
