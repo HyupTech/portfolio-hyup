@@ -10,6 +10,7 @@ class ResumeDTO(
         achievements: List<Achievement>,
         skills: List<Skill>
 ) {
+
     var experiences: List<ExperienceDTO> = experiences.map {
         ExperienceDTO(
                 title = it.title,
@@ -26,9 +27,11 @@ class ResumeDTO(
                 description = it.description,
                 host = it.host,
                 achievedDate = it.achievedDate
-                        ?.format(DateTimeFormatter.ISO_DATE_TIME)
+                        ?.format(DateTimeFormatter.ISO_LOCAL_DATE)
                         ?.replace("-", ".")
         )
     }
+
     var skills: List<SkillDTO> = skills.map { SkillDTO(it) }
+
 }
